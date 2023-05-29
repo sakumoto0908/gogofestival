@@ -61,7 +61,7 @@ h1, h2 {
     padding-top: 220px;
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
   }
 }
@@ -71,4 +71,9 @@ h1, h2 {
   position: fixed;
   width: 100%;
   z-index: 10000;
+}
+
+.conditional-character {
+  font-size: 13px;
+  color: red;
 }
