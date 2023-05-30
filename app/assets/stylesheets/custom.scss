@@ -77,3 +77,20 @@ h1, h2 {
   font-size: 13px;
   color: red;
 }
+
+.navbar-transparent {
+  margin-bottom: 0px;
+  background-color: rgba(0,0,0,0.5);
+  a {
+    color: #fff !important;
+  }
+  
+  .navbar-brand {
+    padding: 0px;
+    margin-top: 15px;
+  }
+  
+  img {
+    height: 40px;
+  }
+}
