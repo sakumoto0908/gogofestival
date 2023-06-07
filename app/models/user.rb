@@ -11,4 +11,9 @@ class User < ApplicationRecord
   has_secure_password
   
   has_many :topics
+  has_many :favorites
+  has_many :favorite_topics, through: :favorites, source: 'topic'
+  
+  #authenticates_with_sorcery!
+  mount_uploader :avatar, AvatarUploader
 end

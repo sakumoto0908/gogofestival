@@ -1,0 +1,3 @@
+current directory: /home/ec2-user/environment/gogofestival/vendor/bundle/ruby/2.7.0/gems/mimemagic-0.4.3/ext/mimemagic
+/home/ec2-user/.rbenv/versions/2.7.3/bin/ruby -I/home/ec2-user/.rbenv/versions/2.7.3/lib/ruby/2.7.0/rubygems -rrubygems /home/ec2-user/environment/gogofestival/vendor/bundle/ruby/2.7.0/gems/rake-13.0.6/exe/rake RUBYARCHDIR\=/home/ec2-user/environment/gogofestival/vendor/bundle/ruby/2.7.0/extensions/x86_64-linux/2.7.0/mimemagic-0.4.3 RUBYLIBDIR\=/home/ec2-user/environment/gogofestival/vendor/bundle/ruby/2.7.0/extensions/x86_64-linux/2.7.0/mimemagic-0.4.3
+mkdir -p /home/ec2-user/environment/gogofestival/vendor/bundle/ruby/2.7.0/extensions/x86_64-linux/2.7.0/mimemagic-0.4.3/mimemagic
