@@ -9,4 +9,9 @@ class Topic < ApplicationRecord
   has_many :favorites
   has_many :favorite_users, through: :favorites, source: 'user'
   
+  #def user
+    #インスタンスメソッド内でselfはインスタンス自身を指す。
+    #return Topic.find_by(id: self.id)
+  #end
+  
 end

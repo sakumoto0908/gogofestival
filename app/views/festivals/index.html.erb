@@ -1,6 +1,24 @@
-<h2>FESTIVALS</h2>
-<ul>
-  <% @festivals.each do|festival|%>
-  <li><%= festival.event %> - <%= festival.place %> - <%= festival.ditail %> </li>
-  <% end%>
-</ul>
+<div class="topic-index-wrapper">
+  <div class="container">
+    <% @festivals.each do |fes| %>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="topic-index-single">
+            <h2 class="topic-author">
+              <%= fes.event %>
+              <%= fes.ditail %>
+            </h2>
+            <% if fes.logo.present? %>
+              <%= image_tag fes.logo.url %>
+            <% end %>
+            <i class="fa-solid fa-person-running fa-3x topic-index-icon"></i>
+            <i class="fa-regular fa-face-smile fa-3x topic-index-icon"></i>
+            <p class="topic-text">
+              <%#= @festival.ditail(:id) %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

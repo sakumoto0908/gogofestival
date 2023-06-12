@@ -10,7 +10,7 @@
     <link rel="stylesheet"
           href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
   </head>
-
+  
   <body>
     <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
@@ -24,7 +24,7 @@
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
             <li>
-              <%= link_to "#" do %>
+              <%= link_to user_path(current_user.id) do %>
                 <i class="fa-solid fa-user fa-3x" aria-hidden="true" ></i>
               <% end %>
             </li>

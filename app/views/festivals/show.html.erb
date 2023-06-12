@@ -1,0 +1,22 @@
+<h2>FESTIVALS</h2>
+<div class="topic-index-wrapper">
+  <div class="container">
+    <%# @festivals.each do |fes| %>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="topic-index-single">
+            <h2 class="topic-author">
+              <%= @festival.event(:id) %>
+            </h2>
+            <%= image_tag festival.logo.url %>
+            <%= image_tag '#', class: 'topic-index-icon' %>
+            <%= image_tag '#', class: 'topic-index-icon' %>
+            <p class="topic-text">
+              <%= festival.ditail %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <%# end %>
+  </div>
+</div>

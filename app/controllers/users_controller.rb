@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
+  before_action :authenticate_admin_user!
+  
   def index
     @users = User.page(params[:page]).per(3).reverse_order
   end
   
   def show
     @user = User.find(params[:id])
-    @topics = @user.topics.page(params[:page]).reverse_order
+    @topics = current_user.topics.all.order("created_at DESC")
   end
   
   def new

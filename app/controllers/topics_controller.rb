@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   def index
     @topics = Topic.all.includes(:favorite_users)
+    @topic = Topic.new
   end
   
   def new
@@ -16,6 +17,22 @@ class TopicsController < ApplicationController
       flash.now[:danger] = "投稿できませんでした"
       render :new
     end
+  end
+  
+  def destroy
+    topic = Topic.find(params[:id])
+    topic.destroy
+  end
+  
+  def edit
+  end
+  
+  def update
+    topic = Topic.find(params[:id])
+    topic.update(topic_params)
+  end
+  
+  def show
   end
   
   private

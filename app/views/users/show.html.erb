@@ -1,22 +1,39 @@
-<div class="container pt-3">
- <div class="row">
-   <div class="col-md-10 offset-md-1">
-     <h1 class="float-left mb-5">プロフィール</h1>
-     <%= link_to 'プロフィール編集', edit_profile_path, class: 'btn btn-success float-right' %>
-     <table class="table">
-       <tr>
-         <th scope="row">メールアドレス</th>
-         <td><%= current_user.email %></td>
-       </tr>
-       <tr>
-         <th scope="row">氏名</th>
-         <td><%= "#{current_user.last_name} #{current_user.first_name}" %></td>
-       </tr>
-       <tr>
-         <th scope="row">アバター</th>
-         <td><%= image_tag current_user.avatar.url, size: '40x40', class: 'rounded-circle mr15'%></td>
-       </tr>
-     </table>
-   </div>
- </div>
-</div>​
+<div class="cover-user-show">
+  <div class="container">
+    <div class="row col-md-offset-4 col-md-4 users-new-container">
+      <% if logged_in? && @user == current_user %>
+      <h1 class="text-center text-white">マイページ</h1>
+      <% else %>
+      <h1 class="text-center text-white"><%= @user.name %>さんのページ</h1>
+      <% end %>
+    </div>
+    <div class="row col-md-offset-4 col-md-4 users-new-container topic-index-single">
+      <%= link_to '新規に投稿する', new_topic_path, class: "btn btn-white btn-block" %>
+      <%# if current_user.id == @topic.user_id %>
+      <div class="topic-author">
+        <% @topics.each do |topic| %>
+          <p><%= image_tag topic.image.url, size: "560x360" %></p>
+          <p class="text-white" ><%= topic.body %></p>
+          <span class="text-white">
+            <%= topic.created_at %>
+          </span>
+          <div class="text-white" >
+            <span><%#= image_tag '#' %></span>
+            <ul class="text-white" >
+              <li>
+                <%= link_to '詳細', topic_path(topic.id), method: :get %>
+              </li>
+              <li>
+                <%= link_to '編集', edit_topic_path(topic.id), method: :get %>
+              </li>
+              <li>
+                <%= link_to '削除', topic_path(topic.id), method: :delete %>
+              </li>
+            </ul>
+          </div> 
+        <% end %>
+      <%# end %>
+      </div>
+    </div>
+  </div>
+</div>

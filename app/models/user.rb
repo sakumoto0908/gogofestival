@@ -16,4 +16,10 @@ class User < ApplicationRecord
   
   #authenticates_with_sorcery!
   mount_uploader :avatar, AvatarUploader
+  
+  #find_byメソッドではその条件に合致するデータを1件だけ取得する。
+  #複数のデータを取得するためにはwhereメソッドを用いる。whereメソッドで取得した場合、それぞれのデータは配列で入っている。
+  def posts
+    return Post.where(user_id: self.id)
+  end
 end
