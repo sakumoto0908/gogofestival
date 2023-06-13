@@ -1,24 +1,50 @@
-<div class="topic-index-wrapper">
-  <div class="container">
-    <% @festivals.each do |fes| %>
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <div class="topic-index-single">
-            <h2 class="topic-author">
-              <%= fes.event %>
-              <%= fes.ditail %>
-            </h2>
-            <% if fes.logo.present? %>
-              <%= image_tag fes.logo.url %>
-            <% end %>
-            <i class="fa-solid fa-person-running fa-3x topic-index-icon"></i>
-            <i class="fa-regular fa-face-smile fa-3x topic-index-icon"></i>
-            <p class="topic-text">
-              <%#= @festival.ditail(:id) %>
-            </p>
+<body>
+  <div class="top-index-wrapper" id="slide">
+    <div class="container">
+      <div class="top-index-container text-center">
+        <h1 class="top-title text-white">No MusicFestival No Life？</h1>
+      </div>
+      <% @festivals.each do |fes| %>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="top-index-single">
+              <h2 class="top-author">
+                <% if fes.logo.present? %>
+                  <%= image_tag fes.logo.url %>
+                <% end %>
+                <%= fes.event %>
+              </h2>
+              <h3 class="top-event-place"><i class="fa-solid fa-location-dot"></i>
+                <%= fes.place %>
+              </h3>
+              <p class="top-event-text">
+                <%= fes.ditail %>
+              </p>
+              <p class="top-event-text">
+                <%= link_to '公式ホームページ', fes.homepage %>
+              </p>
+              <i class="fa-solid fa-person-running fa-3x top-index-icon"></i>
+              <i class="fa-regular fa-face-smile fa-3x top-index-icon"></i>
+              <i class="fa-regular fa-comment-dots fa-3x top-index-icon-comment"></i>
+              <p class=>
+                <%#= @festival.ditail(:id) %>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
+  
+  <script>
+    $(function() {
+      var i = 1;
+      setInterval(function() {
+        if(i > 5) i = 1;
+        $("#slide").css("background-image","url('/assets/background/img"+i+".jpg')");
+        i++;
+        }, 10000
+      );
+    });
+  </script>
+</body>

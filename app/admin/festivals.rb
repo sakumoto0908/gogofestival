@@ -5,7 +5,7 @@ ActiveAdmin.register Festival do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :event, :place, :ditail, :logo
+  permit_params :event, :place, :ditail, :logo, :homepage
   #
   # or
   #

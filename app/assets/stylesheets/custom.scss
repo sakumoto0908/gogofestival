@@ -20,6 +20,57 @@ h1, h2 {
   }
 }
 
+.top-index-wrapper {
+  padding-top: 70px;
+  background-color: #fafafa;
+  background-image: image-url('img2.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+  .top-index-single {
+    background-color: rgba(255,255,255,0.8);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 30px;
+    border: 1px solid #e6ecf0;
+    border-radius: 3px;
+    .top-author {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+    
+    .top-event-place {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+    
+    .top-event-text {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+
+    img {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    .top-index-icon {
+      width: 35px;
+      height: 30px;
+      margin-left: 20px;
+    }
+    
+    .top-index-icon-comment {
+      width: 35px;
+      height: 30px;
+      margin-left: 30px;
+    }
+  }
+}
+
 .top-hero-wrapper {
   width: 100vw;
   height: 100vh;
@@ -133,7 +184,12 @@ h1, h2 {
       padding-right: 20px;
       padding-left: 20px;
     }
-
+    
+    .topic-place {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+    
     .topic-text {
       padding-right: 20px;
       padding-left: 20px;

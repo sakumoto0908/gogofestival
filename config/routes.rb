@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get 'profiles/edit'
   get 'sessions/new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'pages#index'
+  #root 'pages#index'
+  root 'festivals#index'
   
   resources :users
   resources :topics
