@@ -134,7 +134,7 @@ h1, h2 {
 }
 
 .users-new-wrapper {
-
+  
   background-image: image-url('globelet-reusable-dsp8uHRlS6c-unsplash2.jpg');
   background-position: center center;
   background-repeat: no-repeat;
@@ -144,6 +144,7 @@ h1, h2 {
 
   .users-new-container {
     padding-top: 220px;
+    padding-bottom: 220px;
 
 
     .form-group {
@@ -152,6 +153,10 @@ h1, h2 {
     
     .user-page {
       border: 1px solid #565656;
+    }
+    
+    .conditional-character {
+      margin-top: 0px;
     }
     
     p {
