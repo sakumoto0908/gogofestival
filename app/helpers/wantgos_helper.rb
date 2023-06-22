@@ -1,0 +1,2 @@
+module WantgosHelper
+end

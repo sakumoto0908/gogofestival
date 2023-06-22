@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   root 'festivals#index'
   
   resources :users
-  resources :topics
+  resources :topics do
+    resources :comments
+  end
   resources :festivals
 
   get '/login',  to: 'sessions#new'
@@ -20,7 +22,16 @@ Rails.application.routes.draw do
   post '/favorites', to: 'favorites#create'
   delete '/favorites', to: 'favorites#destroy'
   
+  get 'gones/index'
+  post '/gones', to: 'gones#create'
+  delete '/gones', to: 'gones#destroy'
+  
+  get 'wantgos/index'
+  post '/wantgos', to: 'wantgos#create'
+  delete '/wantgos', to: 'wantgos#destroy'
+  
   get 'festivals/index', to: 'festivals#path'
+  get 'festivals/:id', to: 'festivals#show'
   
   resource :profile, only: %i[show edit update]
 end

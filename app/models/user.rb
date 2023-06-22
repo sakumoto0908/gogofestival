@@ -13,13 +13,15 @@ class User < ApplicationRecord
   has_many :topics
   has_many :favorites
   has_many :favorite_topics, through: :favorites, source: 'topic'
+  has_many :gones
+  has_many :gone_festivals, through: :gones, source: 'festival'
+  has_many :wantgos
+  has_many :wantgo_festivals, through: :wantgos, source: 'festival'
+  has_many :festivals
+  has_many :comments
   
   #authenticates_with_sorcery!
   mount_uploader :avatar, AvatarUploader
   
-  #find_byメソッドではその条件に合致するデータを1件だけ取得する。
-  #複数のデータを取得するためにはwhereメソッドを用いる。whereメソッドで取得した場合、それぞれのデータは配列で入っている。
-  def posts
-    return Post.where(user_id: self.id)
-  end
+
 end

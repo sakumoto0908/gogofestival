@@ -1,9 +1,10 @@
 <div class="topic-new-wrapper" >
   <div class="container">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h1 class="text-center">Add Picture</h1>
+      <div class="col-md-offset-4 col-md-4">
+        <h1 class="text-center"><i class="fa-solid fa-pen"></i></i><span> M</span>emories of <span>F</span>es</h1>
         <%= form_for @topic do |f| %>
+          <%= f.hidden_field :festival_id, value: @festival_id %>
           <div class="form-group">
             <%= f.label :image %>
             <%= f.file_field :image%>

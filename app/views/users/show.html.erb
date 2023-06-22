@@ -1,38 +1,53 @@
 <div class="cover-user-show">
   <div class="container">
-    <div class="row col-md-offset-4 col-md-4 users-new-container">
+    <div class="users-new-container">
       <% if logged_in? && @user == current_user %>
       <h1 class="text-center text-white">マイページ</h1>
       <% else %>
       <h1 class="text-center text-white"><%= @user.name %>さんのページ</h1>
       <% end %>
     </div>
-    <div class="row col-md-offset-4 col-md-4 users-new-container topic-index-single">
-      <%= link_to '新規に投稿する', new_topic_path, class: "btn btn-white btn-block" %>
-      <%# if current_user.id == @topic.user_id %>
-      <div class="topic-author">
-        <% @topics.each do |topic| %>
-          <p><%= image_tag topic.image.url, size: "560x360" %></p>
-          <p class="text-white" ><%= topic.body %></p>
-          <span class="text-white">
-            <%= topic.created_at %>
-          </span>
-          <div class="text-white" >
-            <span><%#= image_tag '#' %></span>
-            <ul class="text-white" >
-              <li>
-                <%= link_to '詳細', topic_path(topic.id), method: :get %>
-              </li>
-              <li>
-                <%= link_to '編集', edit_topic_path(topic.id), method: :get %>
-              </li>
-              <li>
-                <%= link_to '削除', topic_path(topic.id), method: :delete %>
-              </li>
-            </ul>
-          </div> 
-        <% end %>
-      <%# end %>
+
+    <div class="row users-new-container">
+      <div class="row">
+        <div class="col-md-offset-1 col-md-4">
+          <div class="user-profile text-white">
+            <% if @user.avatar? %>
+              <%= image_tag @user.avatar.url %>
+            <% else %>
+              <i class="fa-solid fa-circle-user fa-10x"></i>
+            <% end %>
+            <h3>名前： <%= @user.name %></h2>
+            <h3>性別：<%= @user.gender %></h3>
+            <h3>住まい：<%= @user.address %></h3>
+            <h3>一言： <%= @user.self_introduction %></h3>
+            <%= link_to '編集', edit_user_path, class: 'btn btn-success float-right' %>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="users-new-container topic-index-single">
+            <%= link_to '新規に投稿する', new_topic_path, class: "btn btn-white btn-show-block" %>
+            <%# if current_user.id == @topic.user_id %>
+            <div class="topic-author user-page">
+              <% @topics.each do |topic| %>
+                <p><%= image_tag topic.image.url, size: "560x360" %></p>
+                <p class="text-white imag" ><%= topic.body %></p>
+                <span class="text-white">
+                  <%= topic.created_at %>
+                </span>
+                <div class="text-white" >
+                  <span><%#= image_tag '#' %></span>
+                  <ul class="text-white" >
+                    <li>
+                      <%= link_to '削除する', topic_path(topic.id), method: :delete %>
+                    </li>
+                  </ul>
+                </div> 
+              <% end %>
+            <%# end %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

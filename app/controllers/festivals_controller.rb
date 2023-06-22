@@ -15,11 +15,20 @@ class FestivalsController < ApplicationController
   end
   
   def index
-    @festivals = Festival.all
+    @festivals = Festival.all.includes(:gone_users)
+    @festivals = Festival.all.includes(:wantgo_users)
   end
   
   def show
-    @festival = festival_url(params[:id])
+    @festival = Festival.find(params[:id])
+    @festival_topics = @festival.topics.order(created_at: :desc)
+    @comment = Comment.new
+  end
+  
+  def comment
+    @comment = Comment.new(body: params[:body], topic_id: params[:topic_id], user_id: params[:user_id])
+    @comment.save
+    redirect_to topics_path
   end
   
   private

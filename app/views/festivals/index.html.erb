@@ -3,14 +3,17 @@
     <div class="container">
       <div class="top-index-container text-center">
         <h1 class="top-title text-white">No MusicFestival No Life？</h1>
+        <h3 class="top-body">日本全国で開催されている音楽フェスの思い出を共有しよう</h2>
       </div>
-      <% @festivals.each do |fes| %>
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3">
+        <div class="row row-eq-height">
+          <% @festivals.each do |fes| %>
+          <div class="col-md-4">
             <div class="top-index-single">
               <h2 class="top-author">
                 <% if fes.logo.present? %>
-                  <%= image_tag fes.logo.url %>
+                  <%= link_to festival_path(id: fes.id) do %>
+                    <%= image_tag fes.logo.url %>
+                  <% end %>
                 <% end %>
                 <%= fes.event %>
               </h2>
@@ -23,16 +26,51 @@
               <p class="top-event-text">
                 <%= link_to '公式ホームページ', fes.homepage %>
               </p>
-              <i class="fa-solid fa-person-running fa-3x top-index-icon"></i>
-              <i class="fa-regular fa-face-smile fa-3x top-index-icon"></i>
-              <i class="fa-regular fa-comment-dots fa-3x top-index-icon-comment"></i>
-              <p class=>
-                <%#= @festival.ditail(:id) %>
-              </p>
+              <div>
+                <div class="icon">
+                  <% if !fes.gone_users.include?(current_user) %>
+                    <%= link_to gones_path(festival_id: fes.id), method: :post do %>
+                      <div><i class="fa-solid fa-person-running fa-3x top-index-icon" style="color:#808080;"></i>
+                        <%= fes.gone_users.count %>
+                      </div>
+                      <p class="icon-description" style="color:#808080;">行った！</p>
+                    <% end %>
+                  <% else %>
+                    <%= link_to gones_path(festival_id: fes.id), method: :delete do %>
+                      <i class="fa-solid fa-person-running fa-3x top-index-icon" style="color:#0000ff;"></i>
+                        <%= fes.gone_users.count %>
+                      <p class="icon-description" style="color:#0000ff;">行った！</p>
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="icon">
+                  <% if !fes.wantgo_users.include?(current_user) %>
+                    <%= link_to wantgos_path(festival_id: fes.id), method: :post do %>
+                      <i class="fa-regular fa-face-smile fa-3x top-index-icon" style="color:#808080;"></i>
+                        <span><%= fes.wantgo_users.count %></span>
+                      <p class="icon-description" style="color:#808080;">行きたい</p>
+                    <% end %>
+                  <% else%>
+                    <%= link_to wantgos_path(festival_id: fes.id), method: :delete do %>
+                      <i class="fa-regular fa-face-smile fa-3x top-index-icon" style="color:#ff8c00;"></i>
+                        <span><%= fes.wantgo_users.count %></span>
+                      <p class="icon-description" style="color:#ff8c00;">行きたい</p>
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="icon">
+                  <%= link_to new_topic_path(festival_id: fes.id) do %>
+                    <i class="fa-solid fa-file-pen fa-3x top-index-icon-comment" style="color:#808080;"></i>
+                    <span><%#= fes.comment_users.count %></span>
+                    <p class="icon-description comment" style="color:#808080;">投稿する</p>
+                  <% end %>
+                </div>
+              </div>
             </div>
           </div>
+          <% end %>
         </div>
-      <% end %>
+      
     </div>
   </div>
   

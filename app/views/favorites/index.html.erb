@@ -1,20 +1,70 @@
-<div class="topic-index-wrapper">
+<div class="top-index-wrapper">
   <div class="container">
-    <% @favorite_topics.each do |topic| %>
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <div class="topic-index-single">
-            <h2 class="topic-author">
-              <%= topic.user.name %>
-            </h2>
-            <%= image_tag topic.image.url %>
-            <%= image_tag 'comment-dots-regular.svg', class: 'topic-index-icon' %>
-            <p class="topic-text">
-              <%= topic.body %>
-            </p>
+    <div class="top-index-container">
+      <div class="col-md-4 offset-md-8">
+        <ul class="fa-ul favorite-index">
+          <li class="index"><i class="fa-solid fa-thumbs-up fa-2x" style="color:#0000ff;"></i> いいね一覧</li>
+        </ul>
+        <% @favorite_topics.each do |topic| %>
+          <div class="row-eq-height">
+            <div class="top-index-single">
+              <p class="top-author">
+                <%= topic.user.name %>
+              </p>
+              <%= image_tag topic.image.url %>
+              <i class="fa-regular fa-comment-dots fa-3x"></i>
+              <p class="top-text">
+                <%= topic.body %>
+              </p>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
-    <% end %>
+    
+      <div class="offset-md-4 col-md-4 offset-md-4">
+        <ul class="fa-ul favorite-index">
+          <li class="index"><i class="fa-solid fa-person-running fa-2x " style="color:#ff4500;"></i> 行った一覧</li>
+        </ul>
+        <% @gone_festivals.each do |fes| %>
+          <div class="row-eq-height">
+            <div class="top-index-single">
+              <h2 class="top-author">
+                <%= image_tag fes.logo.url %>
+                <%= fes.event %>
+              </h2>
+              
+              <h3 class="top-event-place"><i class="fa-solid fa-location-dot"></i>
+                <%= fes.place %>
+              </h3>
+              <p class="top-event-text">
+                <%= fes.ditail %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    
+      <div class="offset-md-8 col-md-4">
+        <ul class="fa-ul favorite-index">
+          <li class="index"><i class="fa-regular fa-face-smile fa-2x" style="color:#ff8c00;"></i> 行きたい一覧</li>
+        </ul>
+        <% @wantgo_festivals.each do |fes| %>
+          <div class="row-eq-height">
+            <div class="top-index-single">
+              <h2 class="top-author">
+                <%= image_tag fes.logo.url %>
+                <%= fes.event %>
+              </h2>
+              <h3 class="top-event-place"><i class="fa-solid fa-location-dot"></i>
+                <%= fes.place %>
+              </h3>
+              <p class="top-event-text">
+                <%= fes.ditail %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,29 +1,62 @@
-<% provide(:title, "Edit user") %>
-<h1>Update your profile</h1>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages' %>
-
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-      <%= f.submit "Save changes", class: "btn btn-primary" %>
-    <% end %>
-
-    <div class="gravatar_edit">
-      <%= gravatar_for @user %>
-      <a href="http://gravatar.com/emails" target="_blank">change</a>
+<%# provide(:title, "Edit user") %>
+<div class="cover-user-edit">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6">
+        <div class="top-index-single">
+          <div class="text-white">
+            <h1>Update your profile</h1>
+            <%= form_with(model: @user, local: true) do |f| %>
+              <%#= render 'shared/error_messages' %>
+              <div class="form-group">
+                <%= f.label :name %>
+                <%= f.text_field :name, class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= f.label :email %>
+                <%= f.email_field :email, class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= f.label :password %>
+                <%= f.password_field :password, class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= f.label :password_confirmation, "Confirmation" %>
+                <%= f.password_field :password_confirmation, class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= f.label :gender, '性別' %>
+                <%= f.select :gender, {'男性': 1, '女性': 2, '未回答': 3}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+              </div>
+              <div class="form-group">
+                <%= f.label :address %>
+                <%= f.text_field :address, class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= f.label :self_introduction %>
+                <%= f.text_field :self_introduction, class: 'form-control' %>
+              </div>
+              <%= f.submit "更新", class: "btn btn-primary" %>
+            <% end %>
+          </div>
+          <div class="gravatar_edit">
+            <%#= gravatar_for @user %>
+            <a href="http://gravatar.com/emails" target="_blank">change</a>
+          </div>
+          <form method="post">
+          	<div>
+          		<label for="prefecture">都道府県</label>
+          		<select name="prefecture">
+          		<option value="">選択してください</option>
+          		<option value="北海道">北海道</option>
+          		<option value="青森県">青森県</option>
+          		<option value="岩手県">岩手県</option>
+          		<option value="宮城県">宮城県 下記省略</option>
+          		</select>
+          	</div>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </div>

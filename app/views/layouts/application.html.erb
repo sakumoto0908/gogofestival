@@ -26,37 +26,39 @@
             <li>
               <%= link_to user_path(current_user.id) do %>
                 <i class="fa-solid fa-user fa-3x" aria-hidden="true" ></i>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to new_topic_path do %>
-                <i class="fa-solid fa-file-pen fa-3x" aria-hidden="true"></i>
+                <p>My page</p>
               <% end %>
             </li>
             <li>
               <%= link_to favorites_index_path do %>
-                <i class="fa-regular fa-thumbs-up fa-3x"></i>
+                <i class="fa-solid fa-thumbs-up fa-3x style="color:#ff4500;""></i>
+                <p>good</p>
               <% end %>
             </li>
             <li>
               <%= link_to logout_path, method: :delete do %>
                 <i class="fa-solid fa-right-from-bracket fa-3x"></i>
+                <p>Log out</p>
               <% end %>
             </li>
           <% else %>
             <li>
               <%= link_to new_user_path do %>
-                <i class="fa-solid fa-user fa-3x" ></i>
+                <i class="fa-solid fa-user-plus fa-3x"></i>
+                <p>Sign up</p>
+              <% end %>
+            </li>
+
+            <li>
+              <%= link_to login_path do %>
+                <i class="fa-solid fa-right-to-bracket fa-3x"></i>
+                <p>Log in</p>
               <% end %>
             </li>
             <li>
               <%= link_to "#" do %>
                 <i class="fa-solid fa-magnifying-glass fa-3x"></i>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to login_path do %>
-                <i class="fa-solid fa-right-to-bracket fa-3x"></i>
+                <p>search</p>
               <% end %>
             </li>
           <% end %>
