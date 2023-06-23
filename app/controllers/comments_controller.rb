@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     @comment = @topic.comments.new(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-      redirect_to root_url
+      redirect_to festivals_url
     else
       render "topics/index"
     end

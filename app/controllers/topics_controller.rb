@@ -44,7 +44,7 @@ class TopicsController < ApplicationController
   def comment
     @comment = Comment.new(body: params[:body], topic_id: params[:topic_id], user_id: params[:user_id])
     @comment.save
-    redirect_to topics_path
+    redirect_to festivals_path
   end
   
   private

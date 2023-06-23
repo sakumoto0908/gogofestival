@@ -18,7 +18,7 @@
               <i class="fa-solid fa-circle-user fa-10x"></i>
             <% end %>
             <h3>名前： <%= @user.name %></h2>
-            <h3>性別：<%= @user.gender %></h3>
+            <h3><%#= @user.gender %></h3>
             <h3>住まい：<%= @user.address %></h3>
             <h3>一言： <%= @user.self_introduction %></h3>
             <%= link_to '編集', edit_user_path, class: 'btn btn-success float-right' %>

@@ -49,10 +49,12 @@
                        <div class="form-group">
                          <%= f.text_area :body, class: 'form-control'%>
                        </div>
+                       <%= hidden_field :id, :value => topic.id %>
                        <button type="submit" class="btn btn-primary">コメント</button>
                      <% end %>
                      <% topic.comments.each do |comment| %>
-                      <p><%= comment.body %></p>
+                       <%# topic.comment %>
+                       <p><%= comment.body %></p>
                      <% end %>
                    </div>
                  </div>
